@@ -53,7 +53,7 @@ public class Usuario {
 		
 		do{
 			nome = Console.readLine("NOME: ");
-		}while(nome.matches("([a-zA-Z]\\s[a-zA-Z])"));
+		}while(!nome.matches("^(\\D*)+(\\s*)+(\\D)$"));
 		
 		telefone =  Console.readLine("TELEFONE: ");
 		
