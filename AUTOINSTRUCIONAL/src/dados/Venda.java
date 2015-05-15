@@ -14,6 +14,9 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
 public class Venda {
+	
+	private static int sequence = 1;
+	
 	private int numVenda = 0;
 	private Cliente cliente;
 	private GregorianCalendar dataVenda = new GregorianCalendar();
@@ -21,8 +24,8 @@ public class Venda {
 	
 	public Venda(Cliente cliente, GregorianCalendar dataVenda,ArrayList<ItemVenda> vendaItens ) {
 		
-		numVenda++;
 		
+		this.numVenda = sequence++;
 		this.cliente = cliente;
 		this.dataVenda = dataVenda;
 	}

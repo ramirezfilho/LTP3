@@ -14,17 +14,11 @@ public class Cadastro {
 	public static ArrayList<Venda> venda = new ArrayList<Venda>();
 
 	
-	public Cadastro() {
-		// TODO Auto-generated constructor stub
-	}
+		public Cadastro() {
+			
+		}
 	
 	
-	
-	
-	
-	
-
-		// Métodos para Cliente 
 		public static void incluirCliente (Cliente objCliente) {			
 			clientes.add(objCliente);
 		}
@@ -35,9 +29,9 @@ public class Cadastro {
 		}
 		
 		
-		public static Cliente buscarClienteCod (String cod) throws SisVendasException {
+		public static Cliente buscarClienteCod (int cod) throws SisVendasException {
 			for(Cliente objCliente : clientes){
-				if(objCliente.getNome().contains(cod)){
+				if(objCliente.getCodigo() == cod){
 					return objCliente;
 				}
 			}

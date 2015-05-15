@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="dados.Cliente"/>
-<fullyQualifiedTypeName name="utilitarios.Console"/>
 <fullyQualifiedTypeName name="java.util.Calendar"/>
-<fullyQualifiedTypeName name="utilitarios.LtpUtil"/>
+<fullyQualifiedTypeName name="java.lang.Throwable"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="erros.SisVendasException"/>
+<fullyQualifiedTypeName name="cadastro.Cadastro"/>
+<fullyQualifiedTypeName name="java.io.Console"/>
+<fullyQualifiedTypeName name="utilitarios.Console"/>
+<fullyQualifiedTypeName name="dados.Cliente"/>
 <fullyQualifiedTypeName name="java.util.GregorianCalendar"/>
+<fullyQualifiedTypeName name="utilitarios.LtpUtil"/>
 </qualifiedTypeNameHistroy>

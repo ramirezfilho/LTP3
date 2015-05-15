@@ -4,7 +4,12 @@ import java.util.GregorianCalendar;
 
 import utilitarios.LtpUtil;
 
+
+
 public class Cliente {
+	
+	private static int sequence = 1;
+	
 	private int codigo;
 	private String nome;
 	private String cpf;
@@ -15,8 +20,9 @@ public class Cliente {
 	public Cliente(String nome, String cpf, String telefone, String email,
 			GregorianCalendar dataInclusao, GregorianCalendar dataUltAlteracao) {
 		
-		codigo++;
 		
+
+		this.codigo = sequence++;
 		this.nome = nome;
 		this.telefone = telefone;
 		this.email = email;
@@ -63,6 +69,15 @@ public class Cliente {
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
 	}
 
 

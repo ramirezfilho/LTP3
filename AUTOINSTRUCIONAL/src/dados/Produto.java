@@ -3,7 +3,10 @@ package dados;
 import java.util.GregorianCalendar;
 
 public class Produto {
-	private int codigo = 0;
+	
+	private static int sequence = 1;
+	
+	private int codigo;
 	private String cpf;
 	private String nome;
 	private double precoUnitatio;
@@ -13,8 +16,8 @@ public class Produto {
 	public Produto(String cpf, String nome, double precoUnitatio,
 			GregorianCalendar dataInclusao, GregorianCalendar dataUltAlteracao) {
 		
-		codigo++;
-			
+		
+		this.codigo = sequence++;
 		this.cpf = cpf;
 		this.nome = nome;
 		this.precoUnitatio = precoUnitatio;
