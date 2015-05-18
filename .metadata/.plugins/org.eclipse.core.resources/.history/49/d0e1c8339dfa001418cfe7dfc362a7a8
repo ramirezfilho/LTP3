@@ -155,10 +155,6 @@ public class Usuario {
 		System.out.println(Cadastro.buscarClienteCPF(cpf));			
 	}
 	
-	
-	/**
-	 * Método para retornar a lista de vendas por ordem de cliente e data...
-	 */
 	public static void exibeEmOrdem() {
 		
 	}
