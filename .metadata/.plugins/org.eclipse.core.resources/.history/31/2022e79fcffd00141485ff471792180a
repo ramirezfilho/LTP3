@@ -32,30 +32,18 @@ public class Usuario {
 				int ultimoValor = Cadastro.venda.get(Cadastro.venda.size()-1).getNumVenda();
 				Venda.setSequence(ultimoValor);
 			} catch  (Exception	e){
-				System.out.println("Base de dados de Vendas vazio.");
+				System.out.println("Base de dados de vendas não preenchido !!");
 			}
 		}
-		
 		if(new File ("Produtos.obj").exists()){
 			lerArqProdutos();
-			
-			try{
-				int ultimoValor = Cadastro.produto.get(Cadastro.produto.size()-1).getCodigo();
-				Produto.setSequence(ultimoValor);
-			} catch (Exception e ) {
-				System.out.println("Base de dados de Produtos vazio");
-			}
+			int ultimoValor = Cadastro.produto.get(Cadastro.produto.size()-1).getCodigo();
+			Produto.setSequence(ultimoValor);
 		}
 		if(new File ("Clientes.obj").exists()){
 			lerArqClientes();
-			
-			try{
-				int ultimoValor = Cadastro.clientes.get(Cadastro.clientes.size()-1).getCodigo();
-				Cliente.setSequence(ultimoValor);		
-			} catch (Exception e ) {
-				System.out.println("Base de dados de Clientes vazio");
-			}
-		
+			int ultimoValor = Cadastro.clientes.get(Cadastro.clientes.size()-1).getCodigo();
+			Cliente.setSequence(ultimoValor);	
 		}
 	
 	menu();
