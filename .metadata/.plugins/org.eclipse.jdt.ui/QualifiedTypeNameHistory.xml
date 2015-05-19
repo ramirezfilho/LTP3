@@ -8,6 +8,15 @@
 <fullyQualifiedTypeName name="java.io.Console"/>
 <fullyQualifiedTypeName name="utilitarios.Console"/>
 <fullyQualifiedTypeName name="dados.Cliente"/>
+<fullyQualifiedTypeName name="dados.Produto"/>
+<fullyQualifiedTypeName name="dados.Venda"/>
+<fullyQualifiedTypeName name="java.nio.charset.CodingErrorAction"/>
+<fullyQualifiedTypeName name="dados.ItemVenda"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.GregorianCalendar"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
 <fullyQualifiedTypeName name="utilitarios.LtpUtil"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="java.io.FileOutputStream"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
 </qualifiedTypeNameHistroy>

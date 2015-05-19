@@ -1,35 +1,31 @@
 package dados;
 
+import java.io.Serializable;
 import java.util.GregorianCalendar;
+import utilitarios.LtpUtil;
 
-public class Produto {
+
+public class Produto implements Serializable {
 	
-	private static int sequence = 1;
+	private static int sequence = 0;
 	
-	private int codigo;
-	private String cpf;
+	private int codigo;	
 	private String nome;
 	private double precoUnitatio;
 	private GregorianCalendar dataInclusao = new GregorianCalendar();
 	private GregorianCalendar dataUltAlteracao = new GregorianCalendar();
 	
-	public Produto(String cpf, String nome, double precoUnitatio,
+	public Produto(String nome, double precoUnitatio,
 			GregorianCalendar dataInclusao, GregorianCalendar dataUltAlteracao) {
 		
 		
-		this.codigo = sequence++;
-		this.cpf = cpf;
+		this.codigo = ++sequence;
 		this.nome = nome;
 		this.precoUnitatio = precoUnitatio;
 		this.dataInclusao = dataInclusao;
 		this.dataUltAlteracao = dataUltAlteracao;
 	}
-	public String getCpf() {
-		return cpf;
-	}
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
+
 	public String getNome() {
 		return nome;
 	}
@@ -54,15 +50,28 @@ public class Produto {
 	public void setDataUltAlteracao(GregorianCalendar dataUltAlteracao) {
 		this.dataUltAlteracao = dataUltAlteracao;
 	}
-	@Override
-	public String toString() {
-		return "Produto [codigo=" + codigo + ", cpf=" + cpf + ", nome=" + nome
-				+ ", precoUnitatio=" + precoUnitatio + ", dataInclusao="
-				+ dataInclusao + ", dataUltAlteracao=" + dataUltAlteracao + "]";
+	
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
 	}
 	
-	
-	
-	
+	public static int getSequence() {
+		return sequence;
+	}
+
+	public static void setSequence(int sequence) {
+		Produto.sequence = sequence;
+	}
+
+	@Override
+	public String toString() {
+		return "\nProduto\n Codigo = " + codigo + ", \n Nome = " + nome
+				+ ", \n Preço Unitátio = " + precoUnitatio + ", \n Data de inclusão = " + LtpUtil.formatarData( dataInclusao, "dd/MM/yyyy hh:mm")
+				+ ", \n Data de alteração = =" + LtpUtil.formatarData( dataUltAlteracao, "dd/MM/yyyy hh:mm");
+	}
 	
 }

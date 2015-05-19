@@ -10,14 +10,18 @@
 
 package dados;
 
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
-public class Venda {
+import utilitarios.LtpUtil;
+
+public class Venda implements Serializable{
 	
-	private static int sequence = 1;
+	private static int sequence = 0;
 	
-	private int numVenda = 0;
+	private int numVenda;
 	private Cliente cliente;
 	private GregorianCalendar dataVenda = new GregorianCalendar();
 	private ArrayList<ItemVenda> vendaItens = new ArrayList<ItemVenda>();	
@@ -25,7 +29,7 @@ public class Venda {
 	public Venda(Cliente cliente, GregorianCalendar dataVenda,ArrayList<ItemVenda> vendaItens ) {
 		
 		
-		this.numVenda = sequence++;
+		this.numVenda = ++sequence;
 		this.cliente = cliente;
 		this.dataVenda = dataVenda;
 	}
@@ -48,11 +52,14 @@ public class Venda {
 		this.dataVenda = dataVenda;
 	}
 	
+	public static void setSequence(int sequence) {
+		Venda.sequence = sequence;
+	}
 	
 	@Override
 	public String toString() {
-		return "Venda [numVenda=" + numVenda + ", cliente=" + cliente
-				+ ", dataVenda=" + dataVenda + "]";
+		return "\n\nVenda \n  Número da Venda = " + numVenda + " \n  " + cliente
+				+ ",\n  Data da Venda = " + LtpUtil.formatarData(dataVenda, "dd/MM/yyyy hh:mm");
 	}
 	
 	

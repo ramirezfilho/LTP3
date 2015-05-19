@@ -1,14 +1,14 @@
 package dados;
 
+import java.io.Serializable;
 import java.util.GregorianCalendar;
 
 import utilitarios.LtpUtil;
 
 
-
-public class Cliente {
+public class Cliente implements Serializable {
 	
-	private static int sequence = 1;
+	private static int sequence = 0;
 	
 	private int codigo;
 	private String nome;
@@ -22,7 +22,7 @@ public class Cliente {
 		
 		
 
-		this.codigo = sequence++;
+		this.codigo = ++sequence;
 		this.nome = nome;
 		this.telefone = telefone;
 		this.email = email;
@@ -79,11 +79,21 @@ public class Cliente {
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
+	
+
+	public static int getSequence() {
+		return sequence;
+	}
+
+
+	public static void setSequence(int sequence) {
+		Cliente.sequence = sequence;
+	}
 
 
 	@Override
 	public String toString() {
-		return "Cliente: \n  Codigo = " + codigo + " \n  Nome = " + nome + " \n  Telefone = "
+		return "\nCliente: \n  Codigo = " + codigo + " \n  Nome = " + nome + " \n  Telefone = "
 				+ telefone + " \n  Email = " + email + " \n  Data de inclusão = " + LtpUtil.formatarData( dataInclusao, "dd/MM/yyyy hh:mm") + "\n  Data de alteração = " + LtpUtil.formatarData( dataUltAlteracao, "dd/MM/yyyy hh:mm");
 	}
 	
