@@ -2,7 +2,6 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="java.util.Calendar"/>
 <fullyQualifiedTypeName name="java.lang.Throwable"/>
-<fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="erros.SisVendasException"/>
 <fullyQualifiedTypeName name="cadastro.Cadastro"/>
 <fullyQualifiedTypeName name="java.io.Console"/>
@@ -18,5 +17,7 @@
 <fullyQualifiedTypeName name="utilitarios.LtpUtil"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="java.util.Comparator"/>
 <fullyQualifiedTypeName name="java.util.Collections"/>
 </qualifiedTypeNameHistroy>

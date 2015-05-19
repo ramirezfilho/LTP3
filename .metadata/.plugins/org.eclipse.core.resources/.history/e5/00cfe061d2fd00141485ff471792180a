@@ -140,17 +140,16 @@ private static void gravarArq(String obj) {
 					+ "\n 1 - Incluir "
 					+ "\n 2 - Alterar "
 					+ "\n 3 - Excluir "
-					+ "\n 4 - Buscar Cliente em ordem"
+					+ "\n 4 - Buscar pelo nome "
 					+ "\n 5 - Exibir todos os clientes "
 					+ "\n\n PRODUTOS"
 					+ "\n 6 - Incluir Produto "
 					+ "\n 7 - Alterar Produto "
 					+ "\n 8 - Excluir Produto "
-					+ "\n 9 - Buscar Produto em ordem "
+					+ "\n 9 - Exibir lista de Produtos "
 					+ "\n\n VENDAS"
 					+ "\n 10 - Incluir Venda"
-					+ "\n 11 - Pesquisar Vendas em ordem"
-					+ "\n 12 - Buscar Venda por período"
+					+ "\n 11 - Exibir Vendas"
 					+ "\n\n -> Qual opção deseja?");
 			
 			switch(option){
@@ -162,11 +161,10 @@ private static void gravarArq(String obj) {
 				case 6 : incluirProduto(); break;
 				case 7 : alterarProduto(); break;
 				case 8 : excluirProduto(); break;
-				case 9 : pesqProdOrdem(); break;
+				case 9 : System.out.println(Cadastro.produto); break;
 				case 10 : incluirVenda();break;
-				case 11 : pesqOrdemVendas();break;
-				case 12 : vendaClientePerido(); break;
-				case 13 : excluirVenda(); break;
+				case 11 : System.out.println(Cadastro.venda);break;
+				case 12 : excluirVenda(); break;
 			}
 			
 			for(int i = 0; i<5; i++) System.out.println("");
@@ -187,26 +185,15 @@ private static void gravarArq(String obj) {
 		Cliente inclusaoCliente;
 		
 		System.out.println(" ---- CADASTRO DE CLIENTES ---- ");
-		while (true) {
 		
+		
+		do{
 			cpf = Console.readLine("CPF: ");
-			if (!LtpUtil.validarCPF(cpf)) {
-				System.out.println("CPF invalido");
-					continue;
-			}
-			
-			try {
-				Cliente objCliente1 = Cadastro.buscarClienteCPF(cpf);
-				System.out.println("CPF já cadastrado para o Sócio : "
-				+ objCliente1.getNome());
-				} catch (SisVendasException erro) {
-					break;
-			}
-		}
+		}while(!LtpUtil.validarCPF(cpf));
 		
-		do {
+		do{
 			nome = Console.readLine("NOME: ");
-		} while (!nome.matches("^(\\D*)+(\\s*)+(\\D)$"));
+		}while(!nome.matches("^(\\D*)+(\\s*)+(\\D)$"));
 		
 		telefone =  Console.readLine("TELEFONE: ");
 		
@@ -277,7 +264,6 @@ private static void gravarArq(String obj) {
 	/**
 	 * Método responsável pela exclusão de clientes
 	 * @throws SisVendasException - Quando não é possível encontrar o cliente
-	 * Necessário implementar a tratativa caso haja alguma venda registrada para o cliente.
 	 */
 	public static void excluirCliente() throws SisVendasException{
 		
@@ -299,6 +285,14 @@ private static void gravarArq(String obj) {
 	public static void buscarClienteCPF() throws SisVendasException {
 		String cpf = Console.readLine("Digite o CPF para buscar: " );
 		System.out.println(Cadastro.buscarClienteCPF(cpf));			
+	}
+	
+	
+	/**
+	 * Método para retornar a lista de vendas por ordem de cliente e data...
+	 */
+	public static void exibeClienteEmOrdem() {
+		
 	}
 	
 	
@@ -374,7 +368,6 @@ private static void gravarArq(String obj) {
 	/**
 	 * Método responsável pela exclusão de produtos via código
 	 * @throws SisVendasException - Quando não é possível encontrar o cliente
-	 * Necessário implementar a não exclusão do produco caso o mesmo esteja registrado em alguma venda
 	 */
 	public static void excluirProduto() throws SisVendasException{
 		
@@ -533,7 +526,7 @@ private static void gravarArq(String obj) {
 			String nome = Console.readLine("Nome/Parte do nome para pesquisar: ");
 			ArrayList<Cliente> resp = Cadastro.buscarClienteNomeOrdem(nome);
 			if (resp.isEmpty()) {
-				System.out.println("Nao existe nehum cliente para o nome.");
+				System.out.println("Nao existe nehum cliente para o nome indicado.");
 				} else {
 				for (Cliente objSocio : resp) {
 					System.out.println(objSocio.toString());
@@ -544,98 +537,6 @@ private static void gravarArq(String obj) {
 			} catch (SisVendasException erro) {
 			System.out.println(erro.getMessage());
 		}
-	}
-	
-	
-	
-	private static void pesqProdOrdem() {
-		try {
-			String nome = Console.readLine("Informe o nome ou parte do nome do produto para pesquisar: ");
-			ArrayList<Produto> resp = Cadastro.buscarProdutoNome(nome);
-			if (resp.isEmpty()) {
-				System.out.println("Nao existe nenhum produto para o nome.");
-				} else {
-					for (Produto objSocio : resp) {
-						System.out.println(objSocio.toString());
-						
-					}
-				}	
-			} catch (SisVendasException erro) {
-			System.out.println(erro.getMessage());
-		}
-	}
-	
-	
-	private static void pesqOrdemVendas() {
-		try {
-			String nome = Console.readLine("Informe o nome do cliente para buscar as vendas: ");
-			Cliente cli = Cadastro.buscarClienteNome(nome);
-			ArrayList<Venda> resp = Cadastro.buscarVendaClienteNome(cli);
-			if (resp.isEmpty()) {
-				System.out.println("Nao existe nehum cliente para o nome.");
-				} else {
-				for (Venda objSocio : resp) {
-					System.out.println(objSocio.toString());
-					
-				}
-			}
-			
-			} catch (SisVendasException erro) {
-			System.out.println(erro.getMessage());
-		}
-	}
-	
-private static void vendaClientePerido() {
-		
-		String data;
-		GregorianCalendar dt1 = new GregorianCalendar();
-		GregorianCalendar dt2 = new GregorianCalendar();
-		
-		do {
-			
-			data = Console
-			.readLine("Favor informar a data1 :\n EX: DD/MM/YYYY ");
-			
-			if (!LtpUtil.validarData(data, dt1)) {
-				System.out.println("Data invalida.");
-				continue;
-			}
-			
-			if (dt1.after(new GregorianCalendar())) {
-				System.out.println(" Data maior que a data atual !!");
-			}
-			
-		} while ((data.matches("^(\\d{2}\\/\\d{2}\\/\\d{4})$"))
-		&& (dt1.after(new GregorianCalendar())));
-		
-		do {
-			
-			data = Console
-			.readLine("Favor informar a data2 :\n EX: DD/MM/YYYY ");
-			
-			if (!LtpUtil.validarData(data, dt2)) {
-				System.out.println("Data invalida.");
-				continue;
-			}
-			
-			if (dt2.after(new GregorianCalendar())) {
-				System.out.println(" Data maior que a data atual !!");
-			}
-			
-		} while ((data.matches("^(\\d{2}\\/\\d{2}\\/\\d{4})$"))
-		&& (dt2.after(new GregorianCalendar())));
-		
-		ArrayList<Venda> resp = Cadastro.vendaClientePerido(dt1, dt2);
-		if (resp.isEmpty()) {
-			System.out
-			.println("Nao existe nehuma venda cadastrada neste periodo.");
-			} else {
-			for (Venda objProduto : resp) {
-				System.out.println(objProduto.toString());
-				
-			}
-		}
-		
 	}
 	
 }

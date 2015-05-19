@@ -56,15 +56,6 @@ public class Venda implements Serializable{
 		Venda.sequence = sequence;
 	}
 	
-	
-	
-	
-	public ArrayList<ItemVenda> getVendaItens() {
-		return vendaItens;
-	}
-	public void setVendaItens(ArrayList<ItemVenda> vendaItens) {
-		this.vendaItens = vendaItens;
-	}
 	@Override
 	public String toString() {
 		return "\n\nVenda \n  Número da Venda = " + numVenda + " \n  " + cliente

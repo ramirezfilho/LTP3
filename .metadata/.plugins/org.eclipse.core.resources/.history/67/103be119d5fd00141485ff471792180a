@@ -204,9 +204,9 @@ private static void gravarArq(String obj) {
 			}
 		}
 		
-		do {
+		do{
 			nome = Console.readLine("NOME: ");
-		} while (!nome.matches("^(\\D*)+(\\s*)+(\\D)$"));
+		}while(!nome.matches("^(\\D*)+(\\s*)+(\\D)$"));
 		
 		telefone =  Console.readLine("TELEFONE: ");
 		
@@ -277,7 +277,6 @@ private static void gravarArq(String obj) {
 	/**
 	 * Método responsável pela exclusão de clientes
 	 * @throws SisVendasException - Quando não é possível encontrar o cliente
-	 * Necessário implementar a tratativa caso haja alguma venda registrada para o cliente.
 	 */
 	public static void excluirCliente() throws SisVendasException{
 		
@@ -299,6 +298,14 @@ private static void gravarArq(String obj) {
 	public static void buscarClienteCPF() throws SisVendasException {
 		String cpf = Console.readLine("Digite o CPF para buscar: " );
 		System.out.println(Cadastro.buscarClienteCPF(cpf));			
+	}
+	
+	
+	/**
+	 * Método para retornar a lista de vendas por ordem de cliente e data...
+	 */
+	public static void exibeClienteEmOrdem() {
+		
 	}
 	
 	
@@ -374,7 +381,6 @@ private static void gravarArq(String obj) {
 	/**
 	 * Método responsável pela exclusão de produtos via código
 	 * @throws SisVendasException - Quando não é possível encontrar o cliente
-	 * Necessário implementar a não exclusão do produco caso o mesmo esteja registrado em alguma venda
 	 */
 	public static void excluirProduto() throws SisVendasException{
 		

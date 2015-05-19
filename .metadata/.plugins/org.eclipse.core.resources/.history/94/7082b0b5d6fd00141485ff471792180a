@@ -374,7 +374,7 @@ private static void gravarArq(String obj) {
 	/**
 	 * Método responsável pela exclusão de produtos via código
 	 * @throws SisVendasException - Quando não é possível encontrar o cliente
-	 * Necessário implementar a não exclusão do produco caso o mesmo esteja registrado em alguma venda
+	 * Necessário implementar a não exclusão do produco caso o mesmo esteja registrado em alguma venda.
 	 */
 	public static void excluirProduto() throws SisVendasException{
 		
@@ -400,74 +400,87 @@ private static void gravarArq(String obj) {
 	/**
 	 * Método responsável pelo cadastro de vendas
 	 */
-	private static void incluirVenda (){
-		
-		Cliente cliente;
-		GregorianCalendar dataVenda = new GregorianCalendar();
-		String cpf;
-		int codigoProduto;
+	private static void incluirVenda() throws SisVendasException {
+		GregorianCalendar dt = new GregorianCalendar();
+		Cliente cliente = null;
 		Produto produto = null;
+		String cpf;
+		String data;
+		Date dt1;
 		int quantidade;
 		double preco = 0;
-		double valor;
+		double valor = 0;
 		ArrayList<ItemVenda> itensVendas = new ArrayList<ItemVenda>();
-		Venda inclusaoVenda;
-		
-		
-		System.out.println(" ---- CADASTRO DE VENDAS ---- ");
 		
 		try {
-		
-		do{
-		cpf = Console.readLine("CPF DO CLIENTE ");
-		}while(!LtpUtil.validarCPF(cpf));
-		
-		cliente = Cadastro.buscarClienteCPF(cpf);
-		
-		do{
-			codigoProduto = Console.readInt("CÓDIGO DO PRODUTO: ");
 			
-			try {
-				produto = Cadastro.buscarProdutoCod(codigoProduto);
-				if (produto == null) {
-					System.out.println("Nao existe produto neste codigo");
+			do {
+				
+				cpf = Console.readLine("Digite o CPF para buscar: ");
+			} while (!LtpUtil.validarCPF(cpf));
+			
+			cliente = Cadastro.buscarClienteCPF(cpf);
+			
+			do {
+				
+				data = Console
+				.readLine("Favor informar a data :\n EX: DD/MM/YYYY ");
+				
+				if (!LtpUtil.validarData(data, dt)) {
+					System.out.println("Data invalida.");
+					continue;
 				}
-			} catch (SisVendasException e) {
-				System.out.println(e.getMessage());
-			}	
-		}while(produto == null);
-		
-		
-		do {
-
-			quantidade = Console
-					.readInt("QUANTIDADE DE ITENS: ");
-			if (quantidade <= 0) {
-				System.out
-						.println("A quantidade tem que ser maior que zero!");
-			} else {
-
-				do {
-					preco = Console
-							.readDouble("PREÇO DO PRODUTO ");
-					valor = preco * quantidade;
-					if (preco <= 0) {
-						System.out
-								.println("A quantidade tem que ser maior que zero!");
+				
+				if (dt.after(new GregorianCalendar())) {
+					System.out.println(" Data maior que a data atual !!");
+				}
+				
+			} while ((data.matches("^(\\d{2}\\/\\d{2}\\/\\d{4})$"))
+			&& (dt.after(new GregorianCalendar())));
+			
+			do {
+				
+				int codigo = Console
+				.readInt("Informe o codigo do produto para o cadastro: ");
+				try {
+					produto = Cadastro.buscarProdutoCod(codigo);
+					if (produto == null) {
+						System.out.println("Nao existe produto neste codigo");
 					}
-				} while (preco <= 0);
-
-			}
-		} while (quantidade <= 0);
-		
-		itensVendas.add(new ItemVenda(produto, preco, quantidade, preco));
-		Cadastro.incluirVenda(new Venda (cliente, new GregorianCalendar(), itensVendas));
-
-		} catch (SisVendasException e) {
+					} catch (SisVendasException e) {
+					System.out.println(e.getMessage());
+				}
+				
+			} while (produto == null);
+			
+			do {
+				
+				quantidade = Console
+				.readInt("Informe a quantidade de itens vendidos: ");
+				if (quantidade <= 0) {
+					System.out
+					.println("A quantidade tem que ser maior que zero!");
+					} else {
+					
+					do {
+						preco = Console
+						.readDouble("Informe o preco do produto vendido: ");
+						valor = preco * quantidade;
+						if (preco <= 0) {
+							System.out
+							.println("A quantidade tem que ser maior que zero!");
+						}
+					} while (preco <= 0);
+					
+				}
+			} while (quantidade <= 0);
+			
+			itensVendas.add(new ItemVenda(produto, preco, quantidade, preco));
+			Cadastro.incluirVenda(new Venda(cliente, dt, itensVendas));
+			} catch (SisVendasException e) {
 			System.out.println(e.getMessage());
 		}
 	}
-	
 	
 	public static void excluirVenda() throws SisVendasException{
 		
