@@ -3,7 +3,10 @@ package dados;
 import java.io.Serializable;
 
 public class ItemVenda implements Serializable{
+	private static int sequence = 0;
+	
 	private Produto produto;
+	private int numItem = 0;
 	private double precoUnitario;
 	private int quantVenda;
 	private double valorVenda;
@@ -11,6 +14,7 @@ public class ItemVenda implements Serializable{
 			double valorVenda) {
 		
 		
+		this.numItem = ++sequence;
 		this.produto = produto;
 		this.precoUnitario = precoUnitario;
 		this.quantVenda = quantVenda;
@@ -41,6 +45,21 @@ public class ItemVenda implements Serializable{
 		this.valorVenda = valorVenda;
 	}
 	
+	
+	
+	
+	public static int getSequence() {
+		return sequence;
+	}
+	public static void setSequence(int sequence) {
+		ItemVenda.sequence = sequence;
+	}
+	public int getNumItem() {
+		return numItem;
+	}
+	public void setNumItem(int numItem) {
+		this.numItem = numItem;
+	}
 	@Override
 	public String toString() {
 		return "ItemVenda [produto=" + produto + ", precoUnitario="

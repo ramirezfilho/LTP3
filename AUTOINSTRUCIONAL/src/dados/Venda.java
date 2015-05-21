@@ -1,13 +1,3 @@
-// Override reimplementar um método herdado.
-// Overload acrescentar um método herdado
-/* class SuperClasse {}
- * class SubClasse extends SuperClasse{}
- */
-// Bloquear herança  = class final SuperClasseBloqueada{}
-// Bloquear algum item da class herdada... inserir o final no cabeçalho do método
-// super = chamar um método da super classe
-
-
 package dados;
 
 
