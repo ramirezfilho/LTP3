@@ -74,7 +74,7 @@ public class Usuario {
 		}
 		
 		if (new File("ItensVendas.obj").exists()) {
-			lerArqClientes();
+			lerArqItensVendas();
 
 			try {
 				int ultimoValor = Cadastro.itensVendas.get(
@@ -106,9 +106,10 @@ public class Usuario {
 				inp = new ObjectInputStream(new FileInputStream("Produtos.obj"));
 				Cadastro.produto = (ArrayList<Produto>) inp.readObject();
 
-			} else {
+			} else if (obj.equals("Clientes")) {
 				inp = new ObjectInputStream(new FileInputStream("Clientes.obj"));
 				Cadastro.clientes = (ArrayList<Cliente>) inp.readObject();
+			} else {
 				inp = new ObjectInputStream(new FileInputStream("ItensVendas.obj"));
 				Cadastro.itensVendas = (ArrayList<ItemVenda>) inp.readObject();
 			}
@@ -134,12 +135,16 @@ public class Usuario {
 						"Produtos.obj"));
 				out.writeObject(Cadastro.produto);
 
-			} else {
+			} else if (obj.equals("Clientes"))  {
 
 				out = new ObjectOutputStream(new FileOutputStream(
 						"Clientes.obj"));
 				out.writeObject(Cadastro.clientes);
 
+			} else {
+				out = new ObjectOutputStream(new FileOutputStream(
+						"ItensVendas.obj"));
+				out.writeObject(Cadastro.itensVendas);
 			}
 			out.close();
 		} catch (Exception erro) {
@@ -156,20 +161,85 @@ public class Usuario {
 	 */
 	public static void menu() throws SisVendasException {
 		int option;
-
+		int opcao;
+		
+		
 		do {
-			option = Console.readInt(" ----- MENU DE OPÇÕES ----- \n"
-					+ "\n MENU DE CLIENTES" + "\n 1 - Incluir " 
+			System.out.println(" -- Sistema de Gestão de Vendas -- "
+							 + "\n\n 1 - Menu de opções de Clientes."
+							 + "\n 2 - Menu de opções de Produtos."
+							 + "\n 3 - Menu de opções de Vendas."
+							 + "\n - Digite 16 para finalizar o programa");
+			
+			opcao = Console.readInt(" - Digite a opção desejada: ");
+			
+			
+			
+			switch (opcao) {
+			case 1: { System.out.println("\n MENU DE CLIENTES" 
+					+  "\n 1 - Incluir " 
 					+ "\n 2 - Alterar "
 					+ "\n 3 - Excluir " 
 					+ "\n 4 - Buscar "
-					+ "\n 5 - Exibir todos os clientes " 
-					+ "\n\n MENU DE PRODUTOS"
-					+ "\n 6 - Incluir " 
-					+ "\n 7 - Alterar "
-					+ "\n 8 - Excluir "
-					+ "\n 9 - Buscar em ordem "
-					+ "\n 10 - NOVO MÉTODO - Estatistica de venda de Produto" 
+					+ "\n 5 - Exibir todos os clientes "
+					+ "\n 20 - Voltar ao menu anterior ");
+			
+			option = Console.readInt("Digite a opção desejada: ");
+			
+						switch (option) {
+								
+								case 1:
+									incluirCliente();
+									break;
+								case 2:
+									alterarCliente();
+									break;
+								case 3:
+									excluirCliente();
+									break;
+								case 4:
+									pesquisaClienteNomeOrdem();
+									break;
+								case 5:
+									System.out.println(Cadastro.clientes);
+									break;
+								case 20: break;
+						}
+						
+			}
+			case 2: {	System.out.println(
+						  "\n\n MENU DE PRODUTOS"
+						+ "\n 1 - Incluir " 
+						+ "\n 2 - Alterar "
+						+ "\n 3 - Excluir "
+						+ "\n 4 - Buscar em ordem "
+						+ "\n 5 - NOVO MÉTODO - Estatistica de venda de Produto"
+						+ "\n - Digite 21 para voltar ao menu anterior" );
+			
+			option = Console.readInt("Digite a opção desejada: ");
+			
+							switch (option){
+							
+								case 1:
+									incluirProduto();
+									break;
+								case 2:
+									alterarProduto();
+									break;
+								case 3:
+									excluirProduto();
+									break;
+								case 4:
+									pesqProdOrdem();
+									break;
+								case 5:
+									estatisticaProduto();
+									break;
+								case 21: break;
+								}
+			}
+			
+			case 3: {option = Console.readInt(" ----- MENU DE OPÇÕES ----- \n"					
 					+ "\n\n MENU DE VENDAS"
 					+ "\n 11 - Incluir"
 					+ "\n 12 - Buscar por período"
@@ -177,59 +247,28 @@ public class Usuario {
 					+ "\n 14 - Estatística" 
 					+ "\n 15 - Pesquisar em ordem"
 					+ "\n"
-					+ "\n 16 - Sair do programa" 
+					+ "\n - Digite 22 para sair do programa." 
 					+ "\n -> Qual opção deseja?");
-
-			switch (option) {
-			case 1:
-				incluirCliente();
-				break;
-			case 2:
-				alterarCliente();
-				break;
-			case 3:
-				excluirCliente();
-				break;
-			case 4:
-				pesquisaClienteNomeOrdem();
-				break;
-			case 5:
-				System.out.println(Cadastro.clientes);
-				break;
-			case 6:
-				incluirProduto();
-				break;
-			case 7:
-				alterarProduto();
-				break;
-			case 8:
-				excluirProduto();
-				break;
-			case 9:
-				pesqProdOrdem();
-				break;
-			case 10:
-				estatisticaProduto();
-				break;
-			case 11:
-				incluirVenda();
-				break;
-			case 12:
-				vendaClientePerido();
-				break;
-			case 13:
-				excluirVenda();
-				break;
-			case 14: estatisticaVenda();
-				break;
-			case 15: pesqOrdemVendas(); break;
-			case 16:  break;
-			}
-
-			for (int i = 0; i < 5; i++)
-				System.out.println("");
-
-		} while (option != 16);
+				
+							switch (option) {
+								case 1:
+									incluirVenda();
+									break;
+								case 2:
+									vendaClientePerido();
+									break;
+								case 3:
+									excluirVenda();
+									break;
+								case 4: estatisticaVenda();
+									break;
+								case 5: pesqOrdemVendas(); break;
+								case 22: break;
+							}
+					}
+				} 
+				
+			}while (opcao != 16);
 	}
 
 	/**
@@ -611,7 +650,7 @@ public class Usuario {
 	private static void lerArqItensVendas() {
 		try {
 			ObjectInputStream inp = new ObjectInputStream(new FileInputStream(
-					"ItensVenda.obj"));
+					"ItensVendas.obj"));
 			Cadastro.itensVendas = (ArrayList<ItemVenda>) inp.readObject();
 			inp.close();
 		} catch (Exception erro) {
@@ -619,18 +658,7 @@ public class Usuario {
 			System.exit(1); // termino por falha na leitura do arquivo
 		}
 	}
-	
-	private static void lerArqEstatisticaProduto() {
-		try {
-			ObjectInputStream inp = new ObjectInputStream(new FileInputStream(
-					"ItensVenda.obj"));
-			Cadastro.itensVendas = (ArrayList<ItemVenda>) inp.readObject();
-			inp.close();
-		} catch (Exception erro) {
-			System.out.println(erro.getMessage());
-			System.exit(1); // termino por falha na leitura do arquivo
-		}
-	}
+
 
 	/**
 	 * Metodo responsável pela busca de clientes por ordem de nome, onde é
