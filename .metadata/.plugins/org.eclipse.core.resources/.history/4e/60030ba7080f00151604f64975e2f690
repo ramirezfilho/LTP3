@@ -1,0 +1,10 @@
+package dados;
+
+import java.util.ArrayList;
+
+public class Horista extends Funcionario {
+
+	private double valorHora;
+	private ArrayList<HorasTrabalhadas> listahoras= new ArrayList<>();
+	
+}

@@ -1,0 +1,33 @@
+package dados;
+
+import java.util.ArrayList;
+
+public class Horista extends Funcionario {
+
+	private double valorHora;
+	private ArrayList<HorasTrabalhadas> listahoras= new ArrayList<>();
+	
+	public Horista(String nome, String cpf, double valorHora) {
+		super(nome, cpf);
+		this.valorHora = valorHora;
+	}
+
+	@Override
+	public double getSalario(int mes, int ano) {
+		double totHoras = 0;
+		for (HorasTrabalhadas obj : listahoras){
+			
+		}
+			
+		return 0;
+	}
+
+	@Override
+	public int getTipo() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	
+	
+}

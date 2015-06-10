@@ -1,0 +1,44 @@
+package dados;
+
+import java.util.ArrayList;
+
+public class Mensalista extends Funcionario {
+
+	private double salarioMensal;
+	private ArrayList<Falta> listaFaltas= new ArrayList<>();
+	
+	public Mensalista(String nome, String cpf, double valorHora) {
+		super(nome, cpf);
+		this.valorHora = valorHora;
+	}
+	
+	
+
+	public double getValorHora() {
+		return valorHora;
+	}
+
+
+
+	public void setValorHora(double valorHora) {
+		this.valorHora = valorHora;
+	}
+
+
+
+	@Override
+	public double getSalario(int mes, int ano) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getTipo() {
+		return HORISTA;
+	}
+	
+	
+	
+	
+	
+}

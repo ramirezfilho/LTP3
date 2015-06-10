@@ -1,0 +1,16 @@
+package cadastro;
+
+import java.util.ArrayList;
+
+import dados.Funcionario;
+
+class Cadastro {
+	
+	public static ArrayList<Funcionario> listaFuncionarios = new ArrayList<Funcionario>();
+
+	public static void CadastroFuncionario (Funcionario objFuncionario){
+		listaFuncionarios.add(objFuncionario);
+	}
+}
+
+

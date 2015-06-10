@@ -1,0 +1,11 @@
+package controle_de_pagamento;
+
+class Interface {
+
+	public static void main(String[] args) {
+		
+		
+
+	}
+}
+

@@ -1,0 +1,33 @@
+package controle_de_pagamento;
+
+import dados.Horista;
+import utilitarios.Console;
+import cadastro.*;
+
+class Interface {
+
+	public static void main(String[] args) {
+		
+		IncluirFuncionario();
+		
+		System.out.println(Cadastro.listaFuncionarios);
+		
+		for (Horista objHorista : Cadastro.listaFuncionarios ) {
+			System.out.println(objHorista.getTipo();
+		}
+
+	}
+	
+	
+	private static void IncluirFuncionario() {
+		String nome = Console.readLine("Digite o nome: ");
+		String cpf = Console.readLine("Digite o cpf: ");
+		double valorHora = Console.readDouble("Digite o valor recebido por hora: ");
+		
+		 Horista func = new Horista(nome, cpf, valorHora);
+		 Cadastro.CadastroFuncionario(func);
+	}
+}
+
+
+

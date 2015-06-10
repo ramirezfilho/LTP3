@@ -1,0 +1,20 @@
+package controle_de_pagamento;
+
+class Interface {
+
+	public static void main(String[] args) {
+		
+		
+
+	}
+	
+	
+	private static void IncluirFuncionario() {
+		String nome;
+		String cpf;
+		
+	}
+}
+
+
+

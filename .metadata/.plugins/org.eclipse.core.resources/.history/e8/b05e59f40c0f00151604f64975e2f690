@@ -1,0 +1,17 @@
+package cadastro;
+
+import java.util.ArrayList;
+
+import dados.Funcionario;
+import dados.Horista;
+
+class Cadastro {
+	
+	public static ArrayList<Horista> listaFuncionarios = new ArrayList<Horista>();
+
+	public static void CadastroFuncionario (Horista objFuncionario){
+		listaFuncionarios.add(objFuncionario);
+	}
+}
+
+
