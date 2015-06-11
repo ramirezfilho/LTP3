@@ -1,0 +1,69 @@
+package dados;
+
+import java.util.ArrayList;
+
+import erros.CelularException;
+
+public class ClienteCelular {
+	private String cpf;
+	private String nome;
+	
+	//Lista implementada sempre do tipo da super classe
+	
+	ArrayList<Celular> listaCelular = new ArrayList<Celular>();
+
+	public ClienteCelular(String cpf, String nome,
+			ArrayList<Celular> listaCelular) {
+		super();
+		this.cpf = cpf;
+		this.nome = nome;
+		this.listaCelular = listaCelular;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public ArrayList<Celular> getListaCelular() {
+		return listaCelular;
+	}
+
+	public void setListaCelular(ArrayList<Celular> listaCelular) {
+		this.listaCelular = listaCelular;
+	}
+	
+	public String toString() {
+		return
+				"CPF: " + cpf + "\n" +
+				"Nome: " + nome + "\n";
+	}
+	
+	public void incluirCelular (Celular obj){
+		listaCelular.add(obj);
+	}
+	
+	public void excluirCelular (Celular obj){
+		listaCelular.remove(obj);
+	}
+
+	public Celular buscaCelular (String numero) throws CelularException{
+		for (Celular obj : listaCelular){
+			if (obj.getNumero().equals(numero)) {
+				return obj;
+			}
+		}
+		throw new CelularException("Não existe celular com o número para o cliente");
+	}
+}

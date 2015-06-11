@@ -11,17 +11,21 @@
 <fullyQualifiedTypeName name="utilitarios.LtpUtil"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
-<fullyQualifiedTypeName name="java.util.Comparator"/>
-<fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="erros.SisVendasException"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="java.util.GregorianCalendar"/>
 <fullyQualifiedTypeName name="java.lang.reflect.Array"/>
 <fullyQualifiedTypeName name="dados.ItemVenda"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="dados.Funcionario"/>
 <fullyQualifiedTypeName name="utilitarios.Console"/>
 <fullyQualifiedTypeName name="dados.Horista"/>
 <fullyQualifiedTypeName name="cadastro.Cadastro"/>
 <fullyQualifiedTypeName name="dados.Mensalista"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.io.ObjectOutputStream.PutField"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="erros.CelularException"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="java.util.Comparator"/>
+<fullyQualifiedTypeName name="dados.ClienteCelular"/>
 </qualifiedTypeNameHistroy>
