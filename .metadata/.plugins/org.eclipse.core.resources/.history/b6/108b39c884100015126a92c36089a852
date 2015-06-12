@@ -1,0 +1,18 @@
+package usuario;
+
+public class Interface {
+
+	public static void main(String[] args) {
+		
+		("Menu de opções: " +
+		"1 - Incluir Cliente" + 
+		"2 - Excluir Cliente" +
+		"3 - Pesquisar Cliente Por CPF" +
+		"4 - Pesquisa Cliente Nome" + 
+		"5 - Incluir Celular "
+		+ "6 - Excluir Celular "
+		+ "7 - Buscar Celular por Número ");
+		
+	}
+
+}

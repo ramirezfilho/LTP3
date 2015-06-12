@@ -2,7 +2,6 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="java.util.Calendar"/>
 <fullyQualifiedTypeName name="java.lang.Throwable"/>
-<fullyQualifiedTypeName name="java.io.Console"/>
 <fullyQualifiedTypeName name="dados.Cliente"/>
 <fullyQualifiedTypeName name="dados.Produto"/>
 <fullyQualifiedTypeName name="dados.Venda"/>
@@ -28,4 +27,5 @@
 <fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="java.util.Comparator"/>
 <fullyQualifiedTypeName name="dados.ClienteCelular"/>
+<fullyQualifiedTypeName name="java.io.Console"/>
 </qualifiedTypeNameHistroy>

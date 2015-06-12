@@ -1,0 +1,33 @@
+package usuario;
+
+import java.util.ArrayList;
+
+import utilitarios.Console;
+
+public class Interface {
+
+	public static void main(String[] args) {
+		
+		int recebe = Console.readInt("Menu de opções: " +
+		"1 - Incluir Cliente" + 
+		"2 - Excluir Cliente" +
+		"3 - Pesquisar Cliente Por CPF" +
+		"4 - Pesquisa Cliente Nome" + 
+		"5 - Incluir Celular "
+		+ "6 - Excluir Celular "
+		+ "7 - Buscar Celular por Número ");
+	
+		switch (recebe) {
+		case 1 : incluirCliente(); break;
+		}
+		
+		
+	}
+
+	private static void incluirCliente() {
+		String nome;
+		String cpf;
+		ArrayList<Celular> celular = new ArrayList<E>()
+	}
+
+}

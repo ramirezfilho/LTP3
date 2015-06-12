@@ -10,7 +10,7 @@ public class ClienteCelular {
 	
 	//Lista implementada sempre do tipo da super classe
 	
-	ArrayList<Celular> listaCelular = new ArrayList<Celular>();
+	public static ArrayList<Celular> listaCelular = new ArrayList<Celular>();
 
 	public ClienteCelular(String cpf, String nome,
 			ArrayList<Celular> listaCelular) {
@@ -50,7 +50,7 @@ public class ClienteCelular {
 				"Nome: " + nome + "\n";
 	}
 	
-	public void incluirCelular (Celular obj){
+	public static void incluirCelular (Celular obj){
 		listaCelular.add(obj);
 	}
 	
@@ -58,7 +58,7 @@ public class ClienteCelular {
 		listaCelular.remove(obj);
 	}
 
-	public Celular buscaCelular (String numero) throws CelularException{
+	public static Celular buscaCelular (String numero) throws CelularException{
 		for (Celular obj : listaCelular){
 			if (obj.getNumero().equals(numero)) {
 				return obj;

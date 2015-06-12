@@ -13,7 +13,7 @@ public class CadClientes {
 	public static HashMap<String, ClienteCelular> listaClientes 
 						= new HashMap<String, ClienteCelular>();
 
-	public void incluirCliente(ClienteCelular obj){
+	public static void incluirCliente(ClienteCelular obj){
 		listaClientes.put(obj.getCpf(), obj);
 	}
 	
@@ -21,7 +21,7 @@ public class CadClientes {
 		listaClientes.remove(obj.getCpf());
 	}
 	
-	public ClienteCelular pesquisaClienteCpf (String cpf) throws CelularException{
+	public static ClienteCelular pesquisaClienteCpf (String cpf) throws CelularException{
 		if (listaClientes.containsKey(cpf)){
 			return listaClientes.get(cpf);
 		} else {
@@ -29,7 +29,7 @@ public class CadClientes {
 		}
 	}
 	
-	public ArrayList<ClienteCelular> pesquisaClientesNome (String nome ) throws CelularException {
+	public static ArrayList<ClienteCelular> pesquisaClientesNome (String nome ) throws CelularException {
 		ArrayList<ClienteCelular> resp = new ArrayList<ClienteCelular>();
 		for (ClienteCelular obj : listaClientes.values()){
 			if (obj.getNome().contains(nome.toUpperCase())){

@@ -1,6 +1,6 @@
 package dados;
 
-class Celular {
+public class Celular {
 
 		public static final int CELULAR = 1 ;
 		public static final int CELULAR_CARTAO = 2;

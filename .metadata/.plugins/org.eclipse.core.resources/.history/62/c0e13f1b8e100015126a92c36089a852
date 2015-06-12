@@ -1,0 +1,64 @@
+package usuario;
+
+import java.util.ArrayList;
+import java.util.GregorianCalendar;
+
+
+import dados.CadClientes;
+import dados.Celular;
+import dados.ClienteCelular;
+import erros.CelularException;
+import utilitarios.Console;
+
+public class Interface {
+
+	public static void main(String[] args) {
+		
+		int recebe = Console.readInt("Menu de opções: " +
+		"1 - Incluir Cliente" + 
+		"2 - Excluir Cliente" +
+		"3 - Pesquisar Cliente Por CPF" +
+		"4 - Pesquisa Cliente Nome" + 
+		"5 - Incluir Celular "
+		+ "6 - Excluir Celular "
+		+ "7 - Buscar Celular por Número ");
+	
+		switch (recebe) {
+		case 1 : incluirCliente(); System.out.println(ClienteCelular.listaCelular);break;
+		}
+		
+		
+	}
+
+	private static void incluirCliente() {
+		String nome;
+		String cpf;
+		String numero;
+		Celular celular = null;
+		ClienteCelular incluiCLiente;
+				
+		nome = Console.readLine("NOME: ");
+		cpf = Console.readLine("CPF: ");
+		
+		System.out.println("Cadastro celular");
+		numero = Console.readLine("NUMERO: ");
+		
+		ClienteCelular.incluirCelular(new Celular(numero));		
+		CadClientes.incluirCliente(incluiCLiente = new ClienteCelular(cpf, nome, ClienteCelular.listaCelular));
+		}
+	
+	private static void pesquisaClienteCpf() {
+		String cpf = Console.readLine("CPF: ");
+		
+		try{
+		CadClientes.pesquisaClienteCpf(cpf);
+		} catch (CelularException e) {
+			System.out.println("CU");
+		}
+		
+		}
+		
+	
+	
+	
+	}

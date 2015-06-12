@@ -529,7 +529,7 @@ public class Usuario {
 		} catch (SisVendasException e) {
 			System.out.println();
 		}
-		
+		////////////
 		intquantidade = Console.readInt("QUANTIDADE DE ITENS: ");
 
 	ArrayList<ItemVenda> itensVendas = new ArrayList<ItemVenda>();
